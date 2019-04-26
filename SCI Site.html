@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2019 by cna29 (http://jsbin.com/xijivuv/298/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+<style id="jsbin-css">
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+.container{
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+}
+
+.topbar{
+  width:100%;
+background:rgba(0,0,0,0.7);
+}
+
+
+
+.topbar {
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 20px;
+}
+
+.topbar{
+  padding-top:5px;
+  padding-bottom:15px;
+}
+.topbar .right-menu  {
+  text-align:right;
+}
+.topbar .right-menu  a{
+  text-align:right;
+  text-decoration: none;
+  color: white;
+  font-size:12px;
+}
+
+.topbar .left-menu a {
+  text-decoration: none;
+  color: white;
+  font-size:12px;
+}
+
+
+
+
+.header{
+  position:relative;
+}
+
+
+.header .firstheadertext{
+  position: absolute;
+  padding: 10px;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  bottom: 1000px;
+  width: 250px;
+  left: 40px;
+}
+
+.header .secondheadertext{
+  position: absolute;
+  padding: 10px;
+  color: white;
+  bottom: 700px;
+  width: 250px;
+  left: 40px;
+  font-family: "Raleway",Arial,Helvetica,sans-serif;
+}
+.header .thirdheadertext{
+  position: absolute;
+  padding: 10px;
+  color: white;
+  bottom: 400px;
+  width: 250px;
+  left: 20px;
+  border:2px solid white;
+  padding-bottom:15px;
+  padding-right:2px;
+  font-family: "Raleway",Arial,Helvetica,sans-serif;
+  text-decoration:none;
+}
+
+
+.header .grid{
+  grid-template-columns:25% 75%;
+}
+.redmenu{
+  height:60px;
+}
+
+.redmenu .grid{
+  display:inline;
+  background-color:#c03;
+}
+
+
+.redmenu a{
+  padding-right:82px;
+  padding-left:82px;
+  color: white;
+  text-decoration: none;
+  border-right: 1px solid black;
+}
+
+.menu {
+  width:800px;
+  font-weight: 600px;
+  line-height: 64px;
+  padding: 0;
+  text-align: center;
+  text-transform: uppercase;
+  background-color:#c03;
+}
+
+.menu a {
+  color: black;
+  font-size: 16px;
+  display: inline-block;
+  line-height: inherit;
+  padding: 0 15px;
+  text-decoration: none;
+  width: 100%;
+}
+
+.menu-item {
+  display: inline-block;
+  position: absolute;
+  text-align: left;
+  bottom:1100px;
+  left:600px;
+}
+.menu-item:hover {
+  background-color: #9b59b6;
+}
+.menu-item:hover .submenu,
+.menu-item:focus .submenu {
+  display: block;
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  width: 220px;
+  background-color: #9b59b6;
+}
+.submenu-item:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.underredmenu{
+  position:relative;
+}
+
+
+}
+.firstthird{
+  position:absolute;
+  background: rgba(0, 0, 0, 0.5);
+  left:0px;
+  width:33%;
+  bottom:1800px;
+}
+
+.introone{
+  background: rgba(0, 0, 0, 0.5);
+}
+.firstthird a{
+  font-size:34px;
+  text-align:center;
+  color:orange;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.firstthird p{
+  font-size:16px;
+  text-align:center;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+
+.secondthird{
+  width:33%;
+  position:absolute;
+  background:white;
+  top:0px;
+  left:420px;
+  right:200px;
+}
+.secondthird a{
+  font-family:"Raleway",Arial,Helvetica,sans-serif;
+  color:#485b6e;
+  font-size:32px;
+  text-align:center;
+}
+.secondthird p{
+  color:#485b6e;
+  font-size:20px;
+  text-align:center;
+}
+
+.lastthird{
+  width:33%;
+  position:absolute;
+  background: rgba(0, 0, 0, 0.5);
+  top:400px;
+  right:0px;
+}
+
+
+.lastthird a{
+  text-align:center;
+  font-size:34px;
+}
+.lastthird p{
+  text-align:center;
+  font-size:16px;
+}
+
+footer{
+  height:250px;
+  width:100%;
+}
+
+.footergrid{
+  background-color:#485b6e;
+  display:grid;
+  grid-template-rows:249px;
+}
+
+footer p{
+  color:white;
+}
+
+@media screen and (max-width: 600px) {
+  
+  .nav {
+    width: 365px;
+    max-width: 100%;
+  }
+  
+  
+  .menu {
+    max-width: 100%;
+    margin: 0;
+  }
+  
+  .menu-item {
+    display: block;
+    width: 100%;
+  }
+  
+  .submenu {
+    right: 0;
+    top: 0;
+    z-index: 1;
+  }
+  
+}
+
+@media screen and (max-width: 365px) {
+  
+  .submenu {
+    position: relative;
+    width: 100%;
+  }
+
+}
+
+
+
+
+
+
+
+</style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container grid">
+      <div class="left-menu">
+        <a href="#">GIVING</a>
+        <a href="#">APPLY</a>
+        <a href="#">REQUEST INFORMATION</a>
+        <a href="#">NEWSLETTER SIGNUP</a>
+      </div>
+      
+    
+      <div class="right-menu">
+        <a href="#">PROSPECTIVE STUDENTS</a>
+        <a href="#">CURRENT STUDENTS</a>
+        <a href="#">LIFELONG LEARNERS</a>
+        <a href="#">ALUMNI</a>
+        <a href="#">FACULTY & STAFF   </a>
+      </div>
+      </div>
+  </div>
+  
+      <div class="header">
+           <div class="container grid"><img src="https://via.placeholder.com/1265" alt="">
+             <h2 class="firstheadertext">Rutgers School of Communication and Information</h2>
+             <h2 class="secondheadertext">ACCEPTING SUMMER & FALL GRADUATE APPLICATIONS</h2>
+             <a href="#"><h2 class="thirdheadertext">Learn<br> more!</h2></a>
+           
+             <div class="navbar">              
+      <nav class="nav">
+    <ul class="menu">
+      <li class="menu-item"><a href="#">ADMISSIONS</a></li>
+      <ul class="submenu">
+          <li class="submenu-item">
+            <a href="#">UNDERGRADUATE</a>
+            <li class="submenu-item">
+            <a href="#">GRADUATE</a>
+              <li class="submenu-item">
+            <a href="#">PROFESSIONAL DEVELOPMENT STUDIES</a>
+      </ul>
+     
+      <li class="menu-item"><a href="#">ACADEMICS</a>
+        <ul class="submenu">
+          <li class="submenu-item">
+            <a href="#">UNDERGRADUATE</a>
+          </li>
+          <li class="submenu-item">
+            <a href="#">GRADUATE</a>
+          </li>
+          <li class="submenu-item">
+            <a href="#">COURSES</a>
+          </li>
+          <li class="submenu-item">
+            <a href="#">STUDENT SERVICES</a>
+          </li>        
+        </ul>
+      </li>
+      
+      <li class="menu-item">
+        <a href="#">RESEARCH</a>
+        <ul class="submenu">
+          <li class="submenu-item">
+            <a href="#">ABOUT RESEARCH</a>
+          </li>
+          <li class="submenu-item">
+            <a href="#">CENTERS, LABS, AND CLUSTERS</a>
+          </li>
+          <li class="submenu-item">
+            <a href="#">RESEARCH KEYWORDS</a>
+          </li>
+           <li class="submenu-item">
+            <a href="#">PUBLICATIONS</a>
+          </li>
+          <li class="submenu-item">
+            <a href="#">RESEARCH NEWS</a>
+          </li>
+        </ul>
+      </li>
+      
+      
+      <li class="menu-item"><a href="#">DIRECTORIES</a>
+        <ul class="submenu">
+          <li class="sumbenu-item"><a href="#">FACULTY</a></li>
+          <li class="submenu-item"><a href="#">PART-TIME FACULTY</a></li>
+          <li class="sumbenu-item"><a href="#">EMERITUS FACULTY</a></li>
+          <li class="sumbenu-item"><a href="#">ADMINISTRATION</a></li>
+          <li class="sumbenu-item"><a href="#">STAFF</a></li>
+          <li class="sumbenu-item"><a href="#">DOCTORAL STUDIES</a></li>
+          <li class="sumbenu-item"><a href="#">ALL SC&I</a></li>
+        </ul>
+      </li>
+      
+      <li class="menu-item"><a href="#">ABOUT</a>
+        <ul class="submenu">
+          <li class="submenu"><a href="#">SCHOOL FACTS & FIGURES</a></li>
+          <li class="submenu"><a href="#">VISIT SC&I</a></li>
+          <li class="submenu"><a href="#">EMPLOYMENT OPPORTUNITIES</a></li>
+          <li class="submenu"><a href="#">CONTACT SC&I</a></li>
+          <li class="submenu"><a href="#">COMMUNICATION DEPARTMENT</a></li>
+          <li class="submenu"><a href="#">JOURNALISM AND MEDIA STUDIES DEPARTMENT</a></li>
+          <li class="submenu"><a href="#">LIBRARY AND INFORMATION SCIENCE DEPARTMENT</a></li>
+          <li class="submenu"><a href="#">GLORIA STEINEM ENDOWED CHAIR IN MEDIA, CULTURE AND FEMINIST STUDIES</a></li>
+    </ul>
+      </li>
+        </ul>
+  </nav>
+        </div>
+  </div>
+        </div>
+        
+        <div class="redmenu" "grid">
+         <div class="container grid">    
+      <a href ="#" class="apply">APPLY</a>
+      <a href="#">REQUEST INFORMATION</a>
+      <a href="#">NEWS</a>
+      <a href="#">EVENTS</a>
+      <a href="#">GIVING</a
+          </div>
+        </div>
+         
+           <div class="underredmenu">
+           <div class="container grid"><img src="https://via.placeholder.com/1265xs2600" alt="">
+             
+             <div class="firstthird">
+            <a href="#"><h2 class="introone">LEADERSHIP TRANSITION</h2>
+             <p class="dafna">Dafna Lemish, who founded the<br> Journal of Children and Media<br> 14 years ago, will step down as<br> co-editor, Amy Jordan and Vikki<br> Katz will assume its leadership<br> as co-editors.</p></a>
+             </div>
+                 
+             <div class="secondthird">
+               <a href="#"><h2 class="introtwo">MARCH 27, RUTGERS GIVING DAY</h2></a>
+            
+               <p class="onrutgers">On Rutgers Giving Day, alumni,<br> donors, friends, students, faculty,<br> and staff come together in a big<br> way to support all things scarlet!<br> Last year we raised over $2.5<br> million dollars with over 6500<br> donors giving to their favorite<br> cause: Rutgers!</p>
+               
+                  <a href="#"><p> RSVP now!</p></a>
+             </div>
+             
+             <div class="lastthird">
+             <a href="#"><h2 class="introthree">RESEARCH AWARD</h2>            <p class="apaper">A paper co-authored by Charles Senteio has been has awarded Honorable Mention for the Betty J. Cleckley Minority Issues Research Award.</p></a>
+             </div>
+             </div>
+           </div>
+           
+           
+           <footer>
+             <div class="footergrid">
+               <a href="#"><p>Rutgers School of Communication and Information</a><br>4 Huntington Street<br>
+                 New Brunswick, NJ 08901<br>
+               <a href="#">848.932.7500<br>
+  sci-info@comminfo.rutgers.edu<br>
+                 web-help@comminfo.rutgers.edu</p>
+<p>ADMISSIONS<br> ACADEMICS<br> RESEARCH<br> DIRECTORIES<br> ABOUT<br> CONTACT SC&I<br>SITEMAP<br>SEARCH</p>    
+               
+<p>APPLY<br>
+REQUEST INFO<br>
+NEWS<br>
+NEWSLETTER<br>
+EVENTS<br>
+GIVING
+</p></a>
+  <p> 
+@RutgersCommInfo<br> #RutgersCommInfo  #RUSCI<br><br>
+Copyright 2019<br><br><a href="#">
+    Rutgers, The State University of New Jersey.</a> <br><br>
+                 An equal opportunity, affirmative action institution.</p>
+             </div>
+     
+     </footer>
+</body>
+</html>
